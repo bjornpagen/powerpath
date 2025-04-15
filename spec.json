@@ -1,0 +1,1319 @@
+{
+  "openapi": "3.0.0",
+  "x-stoplight": {
+    "id": "m52wbpvab72tf"
+  },
+  "paths": {
+    "/": {
+      "get": {
+        "operationId": "AppController_getHello",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "x-stoplight": {
+          "id": "38esr9t330wg9"
+        }
+      }
+    },
+    "/modules": {
+      "post": {
+        "operationId": "ModulesController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Module"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Module created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Module"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "modules"
+        ],
+        "x-stoplight": {
+          "id": "tagffrw272z9t"
+        }
+      },
+      "get": {
+        "operationId": "ModulesController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "List of modules",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Module"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "modules"
+        ],
+        "x-stoplight": {
+          "id": "yppt9kdo2tl37"
+        }
+      }
+    },
+    "/modules/{id}": {
+      "get": {
+        "operationId": "ModulesController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Module found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Module"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "modules"
+        ],
+        "x-stoplight": {
+          "id": "kwxjz9rfe5d0l"
+        }
+      },
+      "patch": {
+        "operationId": "ModulesController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Module"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Module updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Module"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "modules"
+        ],
+        "x-stoplight": {
+          "id": "iyfo6zk1dpid6"
+        }
+      },
+      "delete": {
+        "operationId": "ModulesController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "modules"
+        ],
+        "x-stoplight": {
+          "id": "qwp67uxfcczjs"
+        }
+      }
+    },
+    "/modules/{moduleId}/items": {
+      "post": {
+        "operationId": "ModulesController_addItem",
+        "parameters": [
+          {
+            "name": "moduleId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Item"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Item added to module",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Item"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "modules"
+        ],
+        "x-stoplight": {
+          "id": "zu6bqx8x49ess"
+        }
+      },
+      "get": {
+        "operationId": "ModulesController_listItems",
+        "parameters": [
+          {
+            "name": "moduleId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of items in module, sequentially ordered",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Item"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "modules"
+        ],
+        "x-stoplight": {
+          "id": "xi9zw1187phgi"
+        }
+      }
+    },
+    "/modules/{moduleId}/items/{itemId}/questionBank": {
+      "post": {
+        "operationId": "ModulesController_createQuestionBank",
+        "parameters": [
+          {
+            "name": "moduleId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "itemId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "modules"
+        ],
+        "x-stoplight": {
+          "id": "jy7165lcrcijy"
+        }
+      },
+      "get": {
+        "operationId": "ModulesController_getQuestionBank",
+        "parameters": [
+          {
+            "name": "moduleId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "itemId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "modules"
+        ],
+        "x-stoplight": {
+          "id": "lh6hkw2euafx6"
+        }
+      }
+    },
+    "/modules/associations": {
+      "post": {
+        "operationId": "ModulesController_createModuleAssociation",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ModuleAssociation"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "modules"
+        ],
+        "x-stoplight": {
+          "id": "rr288ueh6ftad"
+        }
+      }
+    },
+    "/modules/{moduleId}/items/associations": {
+      "post": {
+        "operationId": "ModulesController_createItemAssociation",
+        "parameters": [
+          {
+            "name": "moduleId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ItemAssociation"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "modules"
+        ],
+        "x-stoplight": {
+          "id": "vdtxwc9xcm68g"
+        }
+      }
+    },
+    "/courses": {
+      "post": {
+        "operationId": "CoursesController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Course"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Course created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Course"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "courses"
+        ],
+        "x-stoplight": {
+          "id": "3mmjxt00n49a1"
+        }
+      },
+      "get": {
+        "operationId": "CoursesController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "List of courses",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Course"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "courses"
+        ],
+        "x-stoplight": {
+          "id": "j4eypoj7g1tcm"
+        }
+      }
+    },
+    "/courses/{id}": {
+      "get": {
+        "operationId": "CoursesController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Course found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Course"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "courses"
+        ],
+        "x-stoplight": {
+          "id": "33ltoaiga5k4y"
+        }
+      },
+      "patch": {
+        "operationId": "CoursesController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Course"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Course updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Course"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "courses"
+        ],
+        "x-stoplight": {
+          "id": "ll29xfuwwpsdq"
+        }
+      },
+      "delete": {
+        "operationId": "CoursesController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "courses"
+        ],
+        "x-stoplight": {
+          "id": "lnk2z1jffsovh"
+        }
+      }
+    },
+    "/courses/{id}/modules": {
+      "get": {
+        "operationId": "CoursesController_getModules",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of modules within a course",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Module"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "courses"
+        ],
+        "x-stoplight": {
+          "id": "pvy9cnf6wlbil"
+        }
+      }
+    },
+    "/users": {
+      "post": {
+        "operationId": "UsersController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "x-stoplight": {
+          "id": "we7w57sjelgyb"
+        }
+      },
+      "get": {
+        "operationId": "UsersController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "x-stoplight": {
+          "id": "fmjozcskfmwsz"
+        }
+      }
+    },
+    "/users/me": {
+      "post": {
+        "operationId": "UsersController_getMe",
+        "parameters": [
+          {
+            "name": "email",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "x-stoplight": {
+          "id": "ooawxi31n5ebv"
+        }
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "operationId": "UsersController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "x-stoplight": {
+          "id": "07uve6n3bjavb"
+        }
+      },
+      "patch": {
+        "operationId": "UsersController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "x-stoplight": {
+          "id": "kz0vdnyxbq747"
+        }
+      },
+      "delete": {
+        "operationId": "UsersController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "x-stoplight": {
+          "id": "gw1g55xmmo9rb"
+        }
+      }
+    },
+    "/users/{id}/courses/{courseId}": {
+      "get": {
+        "operationId": "UsersController_getCourseByUser",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "courseId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "x-stoplight": {
+          "id": "puxnwojhx3eo3"
+        }
+      }
+    },
+    "/users/{userId}/results": {
+      "post": {
+        "operationId": "UsersController_createResult",
+        "parameters": [
+          {
+            "name": "userId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "calculateMastery",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "x-stoplight": {
+          "id": "o28j0r0w7oelr"
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Result"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/{userId}/items/{itemId}": {
+      "get": {
+        "operationId": "UsersController_getItem",
+        "parameters": [
+          {
+            "name": "userId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "itemId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "x-stoplight": {
+          "id": "zjciqig1o7owy"
+        }
+      }
+    },
+    "/users/{userId}/results/{id}": {
+      "get": {
+        "operationId": "UsersController_getResult",
+        "parameters": [
+          {
+            "name": "userId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get result by id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              }
+            }
+          }
+        },
+        "x-stoplight": {
+          "id": "sjlmmycp76ed2"
+        }
+      },
+      "patch": {
+        "operationId": "UsersController_updateResult",
+        "parameters": [
+          {
+            "name": "userId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Result"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "x-stoplight": {
+          "id": "74z07tlxiq2k3"
+        }
+      },
+      "delete": {
+        "operationId": "UsersController_deleteResult",
+        "parameters": [
+          {
+            "name": "userId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "x-stoplight": {
+          "id": "mp0jf4r4ykvq7"
+        }
+      }
+    },
+    "/users/{userId}/courses/{courseId}/next": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "userId",
+          "in": "path",
+          "required": true
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "courseId",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Get Next Module By Course and User",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Module"
+                    },
+                    {
+                      "type": "object",
+                      "x-stoplight": {
+                        "id": "un7gvrtnx5s0c"
+                      },
+                      "properties": {
+                        "items": {
+                          "type": "array",
+                          "x-stoplight": {
+                            "id": "0724kghlwiujy"
+                          },
+                          "items": {
+                            "$ref": "#/components/schemas/Item"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-next-lesson-by-course-and-user",
+        "x-stoplight": {
+          "id": "4wr5zbueaq9e9"
+        },
+        "description": "Returns the next available lesson to present to a user."
+      }
+    }
+  },
+  "info": {
+    "title": "Canvas Modules Extension",
+    "description": "The Canvas extensions",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [],
+  "components": {
+    "schemas": {
+      "Module": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "readOnly": true
+          },
+          "name": {
+            "type": "string"
+          },
+          "unlock_at": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "active",
+              "deleted"
+            ]
+          },
+          "startingItemId": {
+            "type": "number",
+            "readOnly": true
+          },
+          "startingModuleId": {
+            "type": "number",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "unlock_at",
+          "state",
+          "startingItemId",
+          "startingModuleId"
+        ],
+        "x-stoplight": {
+          "id": "mg3i1h4jmxywq"
+        }
+      },
+      "Item": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "readOnly": true
+          },
+          "name": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "active",
+              "deleted"
+            ]
+          },
+          "lti_url": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "state",
+          "lti_url"
+        ],
+        "x-stoplight": {
+          "id": "2e54agshp2e1x"
+        }
+      },
+      "ModuleAssociation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "readOnly": true
+          },
+          "originModuleId": {
+            "type": "number"
+          },
+          "destinationModuleId": {
+            "type": "number"
+          },
+          "relationship": {
+            "type": "string",
+            "enum": [
+              "prerequisite",
+              "child"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "originModuleId",
+          "destinationModuleId",
+          "relationship"
+        ],
+        "x-stoplight": {
+          "id": "d7ntqqjsdalvk"
+        }
+      },
+      "ItemAssociation": {
+        "type": "object",
+        "properties": {
+          "originItemId": {
+            "type": "number"
+          },
+          "destinationItemId": {
+            "type": "number"
+          },
+          "relationship": {
+            "type": "string",
+            "enum": [
+              "prerequisite"
+            ]
+          }
+        },
+        "required": [
+          "originItemId",
+          "destinationItemId",
+          "relationship"
+        ],
+        "x-stoplight": {
+          "id": "voo8d98asclp5"
+        }
+      },
+      "Course": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "readOnly": true
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "active",
+              "tobedeleted"
+            ]
+          },
+          "title": {
+            "type": "string"
+          },
+          "schoolYear": {
+            "type": "string"
+          },
+          "courseCode": {
+            "type": "string"
+          },
+          "grades": {
+            "type": "string"
+          },
+          "subjects": {
+            "type": "string"
+          },
+          "subjectCodes": {
+            "type": "string"
+          },
+          "defaultModuleId": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "title",
+          "schoolYear",
+          "courseCode",
+          "grades",
+          "subjects",
+          "subjectCodes",
+          "defaultModuleId"
+        ],
+        "x-stoplight": {
+          "id": "avnm3mlfla2fj"
+        }
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "readOnly": true
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "active",
+              "tobedeleted"
+            ],
+            "default": "active"
+          },
+          "dateLastModified": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "metadata": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          },
+          "givenName": {
+            "type": "string"
+          },
+          "familyName": {
+            "type": "string"
+          },
+          "middleName": {
+            "type": "string"
+          },
+          "preferredFirstName": {
+            "type": "string"
+          },
+          "preferredMiddleName": {
+            "type": "string"
+          },
+          "preferredLastName": {
+            "type": "string"
+          },
+          "pronouns": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "sms": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "agents": {
+            "type": "string"
+          },
+          "grades": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "dateLastModified",
+          "metadata",
+          "username",
+          "givenName",
+          "familyName",
+          "middleName",
+          "preferredFirstName",
+          "preferredMiddleName",
+          "preferredLastName",
+          "pronouns",
+          "email",
+          "sms",
+          "phone",
+          "agents",
+          "grades"
+        ],
+        "x-stoplight": {
+          "id": "1t0etcw8pvhj5"
+        }
+      },
+      "Result": {
+        "type": "object",
+        "x-stoplight": {
+          "id": "jfxzhsquj401a"
+        },
+        "required": [
+          "id",
+          "type",
+          "achievedLevel",
+          "status",
+          "value"
+        ],
+        "properties": {
+          "id": {
+            "type": "number",
+            "readOnly": true
+          },
+          "type": {
+            "type": "string"
+          },
+          "achievedLevel": {
+            "type": "string",
+            "enum": [
+              "Mastered"
+            ],
+            "default": "Mastered"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "Completed",
+              "Enrolled",
+              "Failed",
+              "InProgress",
+              "OnHold",
+              "Withdrew"
+            ],
+            "default": "Completed"
+          },
+          "value": {
+            "type": "number"
+          },
+          "itemId": {
+            "type": "number",
+            "x-stoplight": {
+              "id": "o4a9rd05hdems"
+            }
+          }
+        }
+      }
+    }
+  }
+}
