@@ -1,0 +1,22 @@
+{
+  "name": "@superbuilders/powerpath",
+  "version": "1.0.0",
+  "description": "PowerPath TypeScript client for the PowerPath API",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "files": [
+    "*.js",
+    "*.d.ts"
+  ],
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "axios": "^1.6.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "author": "Your Name",
+  "license": "MIT"
+}
