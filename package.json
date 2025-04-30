@@ -2,11 +2,10 @@
   "name": "@superbuilders/powerpath",
   "version": "1.0.0",
   "description": "PowerPath TypeScript client for the PowerPath API",
-  "main": "index.js",
-  "types": "index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
-    "*.js",
-    "*.d.ts"
+    "dist"
   ],
   "scripts": {
     "build": "tsc"
